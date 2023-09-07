@@ -1,8 +1,16 @@
 @import 'vars';
 @import "mixins";
 
-a {
+
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
     text-decoration: none;
+    margin-bottom: 0;
 }
 
 
@@ -70,20 +78,20 @@ a {
     }
 }
 
-.dd {
+.empty_block {
     position: relative;
     @include flexFull;
     align-items: normal;
     z-index: 0;
-}
 
-.product_description-empty {
-    width: 100%;
-    margin-left: calc(50% - 50vw);
-    height: 70px;
-    position: absolute;
-    background-color: $pictureBoxBackground;
-    z-index: 0;
+    &-content {
+        width: 100%;
+        margin-left: calc(50% - 50vw);
+        height: 70px;
+        position: absolute;
+        background-color: $pictureBoxBackground;
+        z-index: 0;
+    }
 }
 
 .product_description {
@@ -95,7 +103,8 @@ a {
         background-color: #FFF;
         text-align: center;
         border: 1px solid;
-        padding: 64px 0;
+        margin-bottom: 129px;
+        padding: 64px 0 64px;
         border: 1px solid #EAEAEA;
         z-index: 10;
     }
@@ -119,6 +128,11 @@ a {
 
     &-price {
         @include fontStyle (24px, 300, $mainTextColor: $mainColor);
+        margin-bottom: 65px;
+    }
+
+    &-line {
+        margin-bottom: 65px;
     }
 }
 
@@ -128,7 +142,8 @@ a {
     @include flexFull;
     @include fontStyle (14px, 400);
     gap: 42px;
-    padding: 60px 0 48px 0;
+
+
 
     &-menu-icon {
         margin-left: 9px;
@@ -136,35 +151,31 @@ a {
 
     &-menu-box {
         position: absolute;
+        z-index: 5;
         background: #FFF;
         box-shadow: 6px 4px 35px 0px rgba(0, 0, 0, 0.21);
         padding: 7px 30px 11px 9px;
+    }
+
+    &-menu-colortitle {
+        margin-bottom: 5px;
+    }
+
+    &-menu-sizetitle {
+        margin-bottom: 5px;
+    }
+
+    &-menu-pricetitle {
+        margin-bottom: 5px;
     }
 
     &-menu-box-color {
         width: 150px;
         position: absolute;
+        z-index: 5;
         background: #FFF;
         box-shadow: 6px 4px 35px 0px rgba(0, 0, 0, 0.21);
         padding: 7px 30px 11px 9px;
-    }
-
-
-    %userSelect {
-        user-select: none;
-        list-style: none;
-    }
-
-    &-menu-colortitle {
-        @extend %userSelect;
-    }
-
-    &-menu-sizetitle {
-        @extend %userSelect;
-    }
-
-    &-menu-pricetitle {
-        @extend %userSelect;
     }
 
     &-menu-check {
@@ -174,13 +185,13 @@ a {
     }
 }
 
-
 .add_cart-button {
     @include bigButtons;
     background-color: #FFFFFF;
     border: 1px solid $mainColor;
     padding: 12px 57px 12px 24px;
     @include fontStyle(16px, $mainTextColor: $mainColor);
+    margin-top: 48px;
 
     &:hover {
         path {
@@ -194,7 +205,6 @@ a {
 
 }
 
-.section_bottom {
-    margin-bottom: 129px;
-    // margin: 0 !important;
+.goods_section-product {
+    margin-bottom: 128px;
 }

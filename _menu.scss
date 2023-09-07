@@ -53,3 +53,16 @@ ul {
 .menu:hover .menu-icon {
     fill: $mainColor;
 }
+
+
+.submenu a {
+    color: black;
+}
+
+.topmenu>li:hover .submenu {
+    transform: scaleY(1);
+}
+
+.menu:hover .menu-icon {
+    fill: $mainColor;
+}

@@ -7,6 +7,14 @@
     align-items: center;
 }
 
+@mixin flexIndexAbsolute {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 @mixin gridTable ($block: 2, $gradFraction: 1fr, $gap: 30px) {
     display: grid;
     grid-template-columns: repeat($block, $gradFraction);
@@ -23,6 +31,7 @@
 
 @mixin bigButtons {
     color: $mainColor;
+
     &:hover {
         background-color: $mainColor;
         stroke-width: 1px;
