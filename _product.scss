@@ -8,9 +8,15 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+ul {
     text-decoration: none;
     margin-bottom: 0;
+}
+
+%filterButtonsEffects {
+    transform: scale(1.03);
+    color: $mainColor;
 }
 
 
@@ -21,6 +27,10 @@ h5 {
     background-color: $headColor;
     justify-content: space-between;
 
+    &_ul { 
+        display: flex;
+    }
+
     &-new-arrivals {
         @include fontStyle (24px, $mainTextColor: $mainColor);
     }
@@ -29,21 +39,26 @@ h5 {
         color: $mainTextColor;
     }
 
-    &-link:not(:last-child)::after {
+    &_li:not(:last-child)::after {
         content: '/';
         padding-left: 8px;
         padding-right: 8px;
     }
 
-    &-link-new {
+    &_li:last-child .arrivals-link {
         color: $mainColor;
     }
 }
 
 
+.active {
+    display: flex;
+}
 .carousel {
     background-color: $pictureBoxBackground;
     display: flex;
+    justify-content: center;
+    align-items: center;
 
     &-inner {
         z-index: 1;
@@ -54,14 +69,14 @@ h5 {
         top: 0;
     }
 
-    .d-block {
-        vertical-align: baseline;
-        background-color: $pictureBoxBackground;
+    &-buttons {
+        display: flex;
     }
 
     &-control-next {
-        width: 31px;
-        left: 96%;
+        width: 47px;
+        left: 95%;
+        justify-content: none;
 
         &:hover .arrow-color {
             fill: $mainColor;
@@ -69,7 +84,7 @@ h5 {
     }
 
     &-control-prev {
-        width: 31px;
+        width: 47px;
         left: 0;
 
         &:hover .arrow-color {
@@ -143,8 +158,6 @@ h5 {
     @include fontStyle (14px, 400);
     gap: 42px;
 
-
-
     &-menu-icon {
         margin-left: 9px;
     }
@@ -155,18 +168,23 @@ h5 {
         background: #FFF;
         box-shadow: 6px 4px 35px 0px rgba(0, 0, 0, 0.21);
         padding: 7px 30px 11px 9px;
+        margin-top: 5px;
+
+        &-color {
+            margin-top: 5px;
+        }
     }
 
     &-menu-colortitle {
-        margin-bottom: 5px;
+        @include checkboxHover;
     }
 
     &-menu-sizetitle {
-        margin-bottom: 5px;
+        @include checkboxHover;
     }
 
     &-menu-pricetitle {
-        margin-bottom: 5px;
+        @include checkboxHover;
     }
 
     &-menu-box-color {

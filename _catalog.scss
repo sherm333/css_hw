@@ -5,8 +5,7 @@
 .filter-sort {
     position: relative;
     @include flexFull;
-    justify-content: normal;
-    align-items: normal;
+    justify-content: flex-start;
     @include fontStyle (14px, 600);
     gap: 385px;
     padding: 51px 0 64px 0;
@@ -14,7 +13,7 @@
 
 
 .description-sorting-menu-filter {
-    width: 360px;
+    // width: 360px;
     position: absolute;
     z-index: 5;
     box-sizing: border-box;

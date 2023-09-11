@@ -39,5 +39,17 @@
         transition: 0, 3s;
         color: white;
     }
+}
 
+@mixin checkboxHover {
+    // margin-bottom: 5px;
+    transition-duration: 0.3s;
+
+    &:hover {
+        @extend %filterButtonsEffects;
+    }
+
+    &:hover .description-sorting-menu-icon path {
+        fill: $mainColor;
+    }
 }
