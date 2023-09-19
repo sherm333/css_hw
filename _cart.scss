@@ -9,26 +9,29 @@ input[type=text]:focus {
 
 .goods_in_cart {
     padding-top: 96px;
+    padding-bottom: 128px;
 }
 
 .goods_in_cart-box {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: min(52px);
+    grid-template-columns: auto 1fr;
+    gap: 128px;
 }
 
 .goods_in_cart-left-block {
     display: flex;
     gap: 40px;
     flex-direction: column;
-
+    
     &-img {
         height: 306px;
     }
 
     &-items {
+        position: relative;
         box-shadow: 6px 4px 35px 0px rgba(0, 0, 0, 0.21);
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         transition: 0.3s;
 
         &:hover {
@@ -37,11 +40,10 @@ input[type=text]:focus {
     }
 
     &-item {
-        position: relative;
-        display: flex;
+        width: 390px ;
         flex-direction: column;
         justify-content: space-between;
-        padding: 22px 97px 62px 32px;
+        padding: 22px 0 0 32px;
         @include fontStyle (22px);
     }
 
@@ -56,35 +58,36 @@ input[type=text]:focus {
 
     &-item-quantity-input {
         width: 44px;
+        box-sizing: border-box;
         height: 24.949px;
         text-align: center;
         border: 1px solid #EAEAEA;
         margin-left: 24px;
         @include fontStyle (18px, $mainTextColor: #656565);
+
+        ::placeholder {
+            font-size: 18px;
+        }
     }
 }
 
 .goods_in_cart-box-buttons {
     display: flex;
     justify-content: space-between;
-    width: 652px;
-    margin-bottom: 128px;
+    margin-top: 32px;
 
     .goods_in_cart-box-button {
+        width: 235px;
+        height: 50px;
         border: 1px solid #A4A4A4;
-        padding: 17px 40px;
         transition: 0.3s;
+        @include fontStyle (14px,300,$mainTextColor: #000000);
+        background-color: $bodyBackground;
 
         &:hover {
             background-color: #A4A4A4;
-
-            &:hover .goods_in_cart-box-button-clear {
-                color: white;
-            }
-
-            &:hover .goods_in_cart-box-button-continue {
-                color: white;
-            }
+            color: white;
+           
         }
 
         &-clear {
@@ -98,11 +101,19 @@ input[type=text]:focus {
 }
 
 .goods_in_cart-right-block {
+    max-width: 360px;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     gap: 21px;
-    margin-left: 56px;
 
+    
+    .right-block-box {
+        display: flex;
+        flex-direction: column;
+        gap:21px;
+
+    }
 
     &-title {
         @include fontStyle (16px, 300, $mainTextColor: #222222);
@@ -114,17 +125,22 @@ input[type=text]:focus {
     }
 
     &-input {
+        width: 360px;
+        height: 45px;
+        box-sizing: border-box;
         @include fontStyle (18px, 400);
-        padding: 13px 17px 16px;
-        color: $mainColor;
+        padding: 13px 17px 16px;       
     }
 
     &-quote {
         border: 1px solid #A4A4A4;
         padding: 11px 15px;
         width: 102px;
+        height: 35px;
+        background-color: $bodyBackground;
         @include fontStyle (11px, 300);
         white-space: nowrap;
+        box-sizing: border-box;
         transition: 0.3s;
 
         &:hover {
@@ -136,11 +152,12 @@ input[type=text]:focus {
     }
 
     &-checkout {
+        height: 214px;
         display: flex;
         flex-direction: column;
         background-color: #F5F3F3;
-        padding: 39px 34px 42px 44px;
-        margin-top: 57px;
+        padding: 39px 44px 0 44px;
+        margin-top: 47px;
 
         &-subtotal {
             @include fontStyle (11px);
@@ -170,6 +187,7 @@ input[type=text]:focus {
         }
 
         &-link {
+            box-sizing: border-box;
             border: none;
             background-color: $mainColor;
             padding: 15px 42px;
@@ -186,7 +204,8 @@ input[type=text]:focus {
     ::-webkit-input-placeholder {
         @include fontStyle (13px, 300, $mainTextColor: #B1B1B1);
     }
-}
+
+   }
 
 .value_box {
     display: flex;
@@ -210,7 +229,7 @@ input[type=text]:focus {
 .closeModal {
     position: absolute;
     top: 10px;
-    right: -20px;
+    right: 40px;
     opacity: 0.8;
     cursor: pointer;
     transition: opacity ease 0.5s;
